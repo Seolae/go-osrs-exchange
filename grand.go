@@ -67,7 +67,7 @@ func getExchange() (e Exchange, err error) {
 }
 
 // GetByID will return the item stats based on the ID given.
-func GetByID(id int) (i Item, err error) {
+func ByID(id int) (i Item, err error) {
 	if cached[id].ID != id {
 		return Item{}, errors.New("gogrand: item not found")
 	}
@@ -89,7 +89,7 @@ func GetByID(id int) (i Item, err error) {
 }
 
 // GetByName will return the item struct if it can find the item.
-func GetByName(name string) (i Item, err error) {
+func ByName(name string) (i Item, err error) {
 
 	uc := ucFirst(strings.ToLower(name))
 
@@ -114,8 +114,8 @@ func GetByName(name string) (i Item, err error) {
 	return Item{}, errors.New("gogrand: item not found")
 }
 
-// GetExchange returns the cached json.
-func GetExchange() (e Exchange) {
+// CachedExchange returns the cached json.
+func CachedExchange() (e Exchange) {
 	return cached
 }
 
